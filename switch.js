@@ -52,7 +52,7 @@ class Switch {
 		}
 	}
 
-	updateStatus ( flag )
+	updateStatus ( flag, call = true )
 	{
 		this.checked = flag;
 		for ( let i of this.inputs )
@@ -60,7 +60,10 @@ class Switch {
 			i.checked = flag;
 		}
 
-		this.config.callback(event.target.checked);
+		if ( call )
+		{
+			this.config.callback(event.target.checked);
+		}
 	}
 }
 
